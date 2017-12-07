@@ -37,7 +37,11 @@ $(function(){
         title : {
             text: '热门品牌销售',
             subtext: '2017年6月',
-            x:'center'
+            textStyle:{
+                color:"#fff"
+            },
+            x:'center',
+            color:"#999"
         },
         tooltip : {
             trigger: 'item',

@@ -5,7 +5,7 @@ $(function () {
         //2. 指定校验时的图标显示，默认是bootstrap风格
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon  glyphicon-asterisk',
+            invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
 
@@ -103,7 +103,8 @@ $(function () {
     });
     //点击重置 ,恢复表单默认状态
     $("button[type=reset]").on("click",function(){
-        validator.validator.resetForm()
+        var validator = $("form").data('bootstrapValidator');
+       validator.resetForm()
     })
 
 
