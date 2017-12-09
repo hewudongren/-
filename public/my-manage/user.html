@@ -9,16 +9,16 @@
     <!-- 引入bootstrap的样式文件 -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
 
-
-    <!-- 引入自己的less文件 -->
-    <!-- <link rel="stylesheet/less" href="./less/index.less"> -->
     <!-- 引入公共base.less -->
     <link rel="stylesheet/less" href="./less/base.less">
+    <!-- 引入自己的less文件 -->
+    <link rel="stylesheet/less" href="./less/user.less">
+
     <!-- 引入less解析js -->
     <script src="./lib/bootstrap/less/less.js"></script>
 
 
-    <title>乐淘后台管理首页</title>
+    <title>乐淘后台用户管理页面</title>
 
 
 </head>
@@ -39,14 +39,14 @@
         </div>
         <div class="manage">
             <ul>
-                <li class="">
+                <li class="active">
                     <a href="user.html">
                         <i class="glyphicon glyphicon-user"></i>用户管理</a>
                 </li>
                 <li>
                     <a href="javascript:;">
                         <i class="glyphicon glyphicon-list"></i>分类管理</a>
-                    <ol >
+                    <ol>
                         <li>
                             <a href="first.html">一级分类</a>
                         </li>
@@ -80,28 +80,51 @@
                 <li>
                     <a href="index.html">首页</a>
                 </li>
+                <li>
+                    用户管理
+                </li>
 
             </ol>
         </div>
-        <div class="data">
-            <div class="num pull-left">
-                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                <div id="main1" style="width: 500px;height:400px;"></div>
-            </div>
-            <div class="hot pull-right">
-                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                <div id="main2" style="width: 600px;height:400px;"></div>
-            </div>
 
-        </div>
+        <!-- 具体内容 -->
+        <section id="detail">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="text-center">
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            <button class="btn btn-danger">启用</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <ul id="pagintor"></ul>
+        </section>
+        
 
 
 
 
     </div>
-    <!-- 模态框 -->
 
 
+
+
+    <!-- 模态框 复用结构-->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-sm" role="document">
@@ -132,7 +155,41 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <!-- 引入echarts -->
 <script src="./lib/echarts/echarts.min.js"></script>
+<!-- 引入分页插件 -->
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
+    <!-- 定义模板 -->
+    <script type="text/html" id="user">
+    {{each rows}}
+
+    <tr>
+        <th scope="row">{{(page-1)*size+$index+1}}</th>
+        <td>{{$value.username}}</td>
+        <td>{{$value.password}}</td>
+        <td >
+
+            {{if $value.isDelete==0}}
+            正常
+            {{else }}
+            禁止
+            {{/if}}
+
+        </td>
+        <td data-id={{$value.id}}>
+           
+                    {{if $value.isDelete==0}}
+                    <button type="button" class="btn btn-danger">禁用</button>
+                    {{else }}
+                    <button type="button" class="btn btn-success">启用</button>
+                    {{/if}}
+           
+        </td>
+    </tr>
+{{/each}}
+</script>
+
 <!-- 引入公共base.js -->
 <script src="./js/base.js"></script>
 <!-- 引入自己的js -->
-<script src="./js/index.js"></script>
+<script src="./js/user.js"></script>
