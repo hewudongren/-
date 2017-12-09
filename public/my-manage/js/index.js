@@ -115,7 +115,9 @@ $(function () {
        $("#main").toggleClass("full")
    })
    //点击退出返回登录页
-   $(".logout").on("click",function(){
+   $(".sure").on("click",function(){
+       //弹出模态框
+
       //发送ajax请求取消登录状态码
       $.ajax({
           url:"/employee/employeeLogout",
