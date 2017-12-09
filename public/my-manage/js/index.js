@@ -1,86 +1,132 @@
-$(function(){
+$(function () {
+
+    //在当前页,检核登录状态
+    $.ajax({
+        url:"/employee/checkRootLogin",
+        success:function(backData){
+            console.log(backData)
+            if(backData.error==400){
+                window.location.href="./login.html"
+            }
+        }
+    })
+
+
+
     //注册人数柱状图
-       // 基于准备好的dom，初始化echarts实例
-       var myChart = echarts.init(document.getElementById('main1'));
-       
-               // 指定图表的配置项和数据
-               var option = {
-                   title: {
-                       text: '2017注册人数',
-                       left:"20",
-                       textStyle:{
-                           color:"red"
-                       }
-                   },
-                   tooltip: {},
-                   legend: {
-                       data:['人数']
-                       
-                   },
-                   xAxis: {
-                       data: ["1月","二月","三月","四月","五月","六月","七月","八月","九月","十月"]
-                   },
-                   yAxis: {},
-                   series: [{
-                       name: '人数',
-                       type: 'bar',
-                       data: [5000, 3500, 3000, 4000, 6000,9000,11000,4000,3000,2000]
-                   }]
-               };
-       
-               // 使用刚指定的配置项和数据显示图表。
-               myChart.setOption(option);
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main1'));
 
-        //销量饼图
- // 基于准备好的dom，初始化echarts实例
- var myChart2 = echarts.init(document.getElementById('main2'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '2017注册人数',
+            left: "20",
+            textStyle: {
+                color: "red"
+            }
+        },
+        tooltip: {},
+        legend: {
+            data: ['人数']
+
+        },
+        xAxis: {
+            data: ["1月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月"]
+        },
+        yAxis: {},
+        series: [{
+            name: '人数',
+            type: 'bar',
+            data: [5000, 3500, 3000, 4000, 6000, 9000, 11000, 4000, 3000, 2000]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    //销量饼图
+    // 基于准备好的dom，初始化echarts实例
+    var myChart2 = echarts.init(document.getElementById('main2'));
 
 
-        option2 = {
-            title : {
-                
-                text: '黑马前端与移动开发就业统计图',
-                subtext: '深圳校区',
-                x:'center'
-            },
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                orient: 'vertical',
-                left: 'left',
-                data: ['13期','12期','11期','10期','9期']
-            },
-            series : [
+    option2 = {
+        title: {
+
+            text: '黑马前端与移动开发就业统计图',
+            subtext: '深圳校区',
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['13期', '12期', '11期', '10期', '9期']
+        },
+        series: [{
+            name: '访问来源',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: [{
+                    value: 61,
+                    name: '13期'
+                },
                 {
-                    name: '访问来源',
-                    type: 'pie',
-                    radius : '55%',
-                    center: ['50%', '60%'],
-                    data:[
-                        {value:61, name:'13期'},
-                        {value:50, name:'12期'},
-                        {value:55, name:'11期'},
-                        {value:45, name:'10期'},
-                        {value:52, name:'9期'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
+                    value: 50,
+                    name: '12期'
+                },
+                {
+                    value: 55,
+                    name: '11期'
+                },
+                {
+                    value: 45,
+                    name: '10期'
+                },
+                {
+                    value: 52,
+                    name: '9期'
                 }
-            ]
-        };
-               
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+
     // 使用刚指定的配置项和数据显示图表。
     myChart2.setOption(option2);
-    
 
 
+    //点击满屏
+    //有样式改变,最好使用类名
+   $(".full").on("click",function(){
+       //点击时,让侧边栏切换显示隐藏效果
+       $("#aside").toggle()
+       //让主体内容满屏切换 与侧边栏配合使用
+       $("#main").toggleClass("full")
+   })
+   //点击退出返回登录页
+   $(".logout").on("click",function(){
+      //发送ajax请求取消登录状态码
+      $.ajax({
+          url:"/employee/employeeLogout",
+        //   type:"get",
+          success:function(backData){
+            console.log(backData)
+            window.location.href="./login.html"
+           
+          }
+      })
+   })
 
 
 

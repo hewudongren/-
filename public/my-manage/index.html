@@ -17,6 +17,21 @@
     <!-- 引入自己的css在最后面,以便覆盖 -->
 
     <title>乐淘后台管理首页</title>
+    <script>
+    
+     //在当前页,检核登录状态
+     $.ajax({
+        url:"/employee/checkRootLogin",
+        success:function(backData){
+            console.log(backData)
+            if(backData.error==400){
+                window.location.href="./login.html"
+                return
+            }
+        }
+    })
+    
+    </script>
 
 </head>
 
@@ -56,10 +71,10 @@
         </div>
     </aside>
     <!-- 内容承载区 -->
-    <div id="main">
+    <div id="main" >
         <header class="action">
-            <a href="" class="pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
-            <a href=""  class="pull-right"> <i class="glyphicon glyphicon-log-out"></i></a>
+            <a href="javascript:;" class="pull-left full"><i class="glyphicon glyphicon-align-justify"></i></a>
+            <a href="javascript:;"  class="pull-right logout"> <i class="glyphicon glyphicon-log-out"></i></a>
         </header>
         <div class="path">
                 <ol class="breadcrumb">

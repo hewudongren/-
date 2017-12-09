@@ -64,10 +64,10 @@ $(function () {
     }).on('success.form.bv', function (e) {
         //点击开启进度条
         NProgress.start()
-       
+
         //表单验证成功,发送ajax请求去服务器验证
-    
-    
+
+
         e.preventDefault();
         //使用ajax提交逻辑 
         $.ajax({
@@ -76,35 +76,40 @@ $(function () {
             data: $("form").serialize(),
             success: function (backData) {
                 //验证成功,关闭进度条
-                setTimeout(function(){
-                    NProgress.done()
 
-                },5000)
+                NProgress.done()
+
+
                 console.log(backData)
                 //根据返回结果,渲染页面
-                //登录成功,回到首页
-               if(backData.success){
-                    // window.location.href="./index.html"
-               }else{
-                   //登录错误,分支判断 通过表单对象 所有和表单有关的可以调用表单对象
-                   var validator = $("form").data('bootstrapValidator');
-                   //用户名不存在
-                   if(backData.error==1000){
-                    validator.updateStatus('username', 'INVALID', 'callback');
-                   }else if(backData.error==1001){
-                       //密码错误
-                    validator.updateStatus('password', 'INVALID', 'callback');
-                   }
-               }
+                //登录成功,回到首页  用户名和密码验证成功
+                if (backData.success) {
+
+                   window.location.href = "./index.html"
 
                
+
+
+                } else {
+                    //登录错误,分支判断 通过表单对象 所有和表单有关的可以调用表单对象
+                    var validator = $("form").data('bootstrapValidator');
+                    //用户名不存在
+                    if (backData.error == 1000) {
+                        validator.updateStatus('username', 'INVALID', 'callback');
+                    } else if (backData.error == 1001) {
+                        //密码错误
+                        validator.updateStatus('password', 'INVALID', 'callback');
+                    }
+                }
+
+
             }
         })
     });
     //点击重置 ,恢复表单默认状态
-    $("button[type=reset]").on("click",function(){
+    $("button[type=reset]").on("click", function () {
         var validator = $("form").data('bootstrapValidator');
-       validator.resetForm()
+        validator.resetForm()
     })
 
 
