@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口要完整 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入bootstrap的样式文件 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+
+    <!-- 引入公共base.less -->
+    <link rel="stylesheet/less" href="./less/base.less">
+    <!-- 引入自己的less文件 -->
+    <link rel="stylesheet/less" href="./less/second.less">
+
+    <!-- 引入less解析js -->
+    <script src="./lib/bootstrap/less/less.js"></script>
+
+
+    <title>乐淘后台分类管理一级分类页面</title>
+
+
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <aside id="aside">
+        <div class="logo">
+
+            <h3 class="text-center">
+                <a href="#">HEIMA</a>
+            </h3>
+
+        </div>
+        <div class="administrator">
+            <img src="./images/default.png" alt="">
+            <em>超级管理员</em>
+        </div>
+        <div class="manage">
+            <ul>
+                <li >
+                    <a href="user.html">
+                        <i class="glyphicon glyphicon-user"></i>用户管理</a>
+                </li>
+                <li class="active">
+                    <a href="javascript:;" >
+                        <i class="glyphicon glyphicon-list"></i>分类管理</a>
+                    <ol>
+                        <li>
+                            <a href="first.html">一级分类</a>
+                        </li>
+                        <li>
+                            <a href="second.html">二级分类</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <i class="glyphicon glyphicon-tags"></i>商品管理</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- 内容承载区 -->
+    <div id="main">
+        <header class="action">
+            <a href="javascript:;" class="pull-left full">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a href="javascript:;" class="pull-right logout" data-toggle="modal" data-target="#myModal">
+                <i class="glyphicon glyphicon-log-out"></i>
+            </a>
+        </header>
+        <div class="path">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li>
+                    分类管理
+                </li>
+                <li>
+                    一级分类
+                </li>
+            </ol>
+        </div>
+
+        <!-- 具体内容 -->
+        <section id="detail">
+            <button class="btn btn-default add" data-toggle="modal" data-target="#myModal2">添加分类</button>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="text-center">
+                        <th>序号</th>
+                        <th>一级分类名称</th>
+                   
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                    
+                    </tr>
+
+                </tbody>
+            </table>
+            <ul id="pagintor"></ul>
+        </section>
+
+
+
+
+
+    </div>
+
+
+
+
+    <!-- 模态框 复用结构-->
+    <!-- Modal 退出模态框-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                </div>
+                <div class="modal-body text-danger ">
+                    <i class="glyphicon glyphicon-info-sign"></i> 你确定要退出后台管理系统吗?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary sure">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加模态框 -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="point">
+                     
+                        <div class="form-group">
+
+                            <input type="text" name="categoryName" autocomplete="off"  class="form-control" placeholder="请输入一级分类" >
+                        </div>
+                           <!--用来清空表单数据-->
+                <!-- <input type="reset" name="reset" style="display: none;" /> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" form="point" class="btn btn-primary submit">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- 引入jquery -->
+<script src="./lib/jquery/jquery.min.js"></script>
+<!-- 引入bootstrap的js -->
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- 引入echarts -->
+<script src="./lib/echarts/echarts.min.js"></script>
+<!-- 引入表单插件 -->
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<!-- 引入分页插件 -->
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
+<!-- 定义模板 -->
+<script type="text/html" id="first">
+    {{each rows}}
+    <tr>
+        <th scope="row">{{(page-1)*size+$index+1}}</th>
+        <td>{{$value.categoryName}}</td>
+    
+
+    </tr>
+
+    {{/each}}
+</script>
+
+<!-- 引入公共base.js -->
+<script src="./js/base.js"></script>
+<!-- 引入自己的js -->
+<script src="./js/first.js"></script>

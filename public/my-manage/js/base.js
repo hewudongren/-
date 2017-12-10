@@ -4,7 +4,7 @@ $(function () {
     $.ajax({
         url: "/employee/checkRootLogin",
         success: function (backData) {
-            console.log(backData)
+            // console.log(backData)
             if (backData.error == 400) {
                 window.location.href = "./login.html"
             }

@@ -72,6 +72,12 @@ ul,ol{
     
     border-bottom: 1px solid #ccc;
 }
+input[type=file]{
+    opacity: 0; //让其透明度为0实际存在,而a标签取消默认行为,完美配合
+    position: absolute;
+    width:100px;
+   
+}
 
 /* 定义全局变量 */
 
@@ -121,21 +127,31 @@ body {
         ul {
             >li {
                 line-height: 50px;
-                padding-left: 20px;
+                
                 border: 3px solid transparent;
                 &.active{
-                    background-color: black;
-                    
-                    border-left: 3px solid yellowgreen;
+                  
                     >a{
                         color: white;
+                        display: block;
+                        background-color: black;
+                        
+                        border-left: 3px solid yellowgreen;
+                    }
+                    ol{
+                        li:first-child{
+                            a{
+                                color: white;
+                            }
+                            
+                        }
                     }
                 }
                 &:nth-of-type(2){
                     ol{
-                        // margin-top: -10px;
+                      
                         padding-left: 20px;
-                        // display: none;
+                     
                         >li{
                             line-height: 30px;
                             >a{
@@ -147,6 +163,7 @@ body {
                 a {
                     color: gray;
                     font-size: 16px;
+                    padding-left: 20px;
                     text-decoration: none;
                     &:hover{
                         text-decoration: none;

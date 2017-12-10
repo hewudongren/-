@@ -85,9 +85,9 @@ $(function () {
                 //登录成功,回到首页  用户名和密码验证成功
                 if (backData.success) {
 
-                   window.location.href = "./index.html"
+                    window.location.href = "./index.html"
 
-               
+
 
 
                 } else {
