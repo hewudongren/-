@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- 引入bootstrap的样式文件 -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
-
+    <!-- 引入表单验证的样式 -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
     <!-- 引入公共base.less -->
     <link rel="stylesheet/less" href="./less/base.less">
     <!-- 引入自己的less文件 -->
@@ -39,11 +40,11 @@
         </div>
         <div class="manage">
             <ul>
-                <li class="active">
+                <li>
                     <a href="user.html">
                         <i class="glyphicon glyphicon-user"></i>用户管理</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="javascript:;">
                         <i class="glyphicon glyphicon-list"></i>分类管理</a>
                     <ol>
@@ -159,45 +160,53 @@
                     <h4 class="modal-title" id="myModalLabel">添加分类</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="form">
                         <div class="form-group">
 
-                                <div class="dropdown">
-                                        <span>一级分类 : </span>
-                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                           
-                                          请选择
-                                          <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                          <li><a href="#">Action</a></li>
-                             
-                                        </ul>
-                                      </div>
+                            <div class="dropdown">
+                                <span>一级分类 : </span>
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="true">
+
+                                   <span class="aa">请选择</span> 
+                                  
+                                    <span class="caret"></span>
+                                </button>
+                                
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li>
+                                        <a href="#">Action</a>
+                                    </li>
+
+                                </ul>
+                                <input type="text" hidden name="categoryId">
+                            </div>
                         </div>
 
                         <div class="form-group">
 
-                            <input type="text" hidden  class="form-control" placeholder="请输入二级分类" >
+                            <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="" hidden class="path" name="brandLogo">
+                            <input type="file" id="fileupload" data-url="/category/addSecondCategoryPic" name="pic1">
+                            <a href="javascript:;" class="btn btn-default ">
+                                <i class="glyphicon glyphicon-picture"></i> 选择图片</a>
+
                         </div>
                         <div class="form-group">
 
-                            <input type="file" >
-                            <a href="javascript:;" class="btn btn-default "><i class="glyphicon glyphicon-picture"></i> 选择图片</a>
-
-                        </div>
-                        <div class="form-group">
-
-
+                            
                             <img src="./images/none.png" alt="" style="width:100px;">
-                           
+                            
+
                         </div>
 
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary">确定</button>
+                    <button type="submit" form="form" class="btn btn-primary submit">确定</button>
                 </div>
             </div>
         </div>
@@ -212,6 +221,11 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <!-- 引入echarts -->
 <script src="./lib/echarts/echarts.min.js"></script>
+<!--引入文件上传插件 -->
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+<!-- 引入表单验证的插件 -->
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <!-- 引入分页插件 -->
 <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <!-- 引入模板引擎 -->
