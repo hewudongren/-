@@ -1,0 +1,52 @@
+#main {
+    display: flex;
+    background: white;
+    .tap-left {
+        height: 100%;
+        position: relative;
+        width: 100px;
+        ul {
+            li {
+                height: 50px;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                background: #f3f4f5;
+                &.active{
+                    background: white;
+                    border-right: 0;
+                    a{
+                        color: lightblue;
+                    }
+                }
+                a {
+                    line-height: 50px;
+                    text-align: center;
+                    font-size: 16px;
+                    display: block;
+                    color: gray;
+                }
+            }
+        }
+    }
+    .cont-right {
+        position: relative;
+        flex: 1;
+        background: white;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                width: (100%/3);
+                padding-top: 5px;
+                a {
+                    display: block;
+                    text-align: center;
+                    img {
+                        width: 40px;
+                    }
+                    p {}
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+#main{
+   .shop-list{
+       .left{
+           padding-right: 5px;
+        img{
+            display: block;
+            min-height: 50px;
+        }
+        input{
+
+        }
+       }
+       .right{
+            .title{
+                white-space: normal;
+                min-height: 42px;
+            }
+            .price{
+                font-size: 12px;
+                .now{
+                    color: red;
+                }
+                .old{
+                    color: gray;
+                    text-decoration: line-through;
+                }
+
+            }
+            .size{
+                span{
+                    color: gray;
+                }
+            }
+       }
+   } 
+
+
+}
+//订单总价
+.total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    box-shadow: 0px -1px 2px gray;
+
+    .price{
+        color: red;
+        font-size: 12px;
+        font-weight: 900;
+        margin: 0px;
+    }
+    button{
+        border-radius: 0;
+        background: red;
+    }
+}
