@@ -24,7 +24,7 @@
     <div id="layout">
         <!-- 头部功能区 -->
         <header id="header">
-            <a href="./index.html" class="back">
+            <a href="javascript:;" class="back">
                 <i class=" fa fa-chevron-left
                 "></i>
             </a>
@@ -50,7 +50,7 @@
                         </form>
                         <div class="record">
                             <a href="">搜索历史</a>
-                            <a href="" class="mui-pull-right"><i class="fa fa-trash"></i>清空历史</a>
+                            <a href="javascript:;" class="mui-pull-right"><i class="fa fa-trash"></i>清空历史</a>
                             <ul>
                                 <li><span>9999</span><i class="fa fa-remove "></i></li>
                             </ul>
@@ -98,7 +98,19 @@
 </html>
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
-<!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+
+<!--引入zeptojs  --> 
+<script src="./lib/zepto/zepto.min.js"></script> 
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
+
+<!-- 引入公共的js --> 
+<script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
-<script src="./js/index.js"></script>
+<script src="./js/search.js"></script>
+<!-- 定义模板 -->
+<script id="list" type="text/html">
+    {{each }}
+    <li><span>{{$value}}</span><i class="fa fa-remove "></i></li>
+    {{/each}}
+</script>
