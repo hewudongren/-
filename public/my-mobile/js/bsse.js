@@ -16,5 +16,9 @@ $(".back").on("click",function(){
 $(".search ").on("tap",function(){
   window.location.href="./search.html"
 })
+//点击退出,回到登录页面
+$(".quit").on("tap",function(){
+  window.location.href="./login.html"
+})
 
 

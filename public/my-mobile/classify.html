@@ -234,7 +234,31 @@
 </html>
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
+
+<!--引入zeptojs  -->
+<script src="./lib/zepto/zepto.min.js"></script>
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
 <!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+<script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
-<script src="./js/index.js"></script>
+<script src="./js/classify.js"></script>
+<!-- 定义模板 左边列表-->
+<script id="left" type="text/html">
+    {{each rows}}
+    <li>
+        <a href="javascript:;" data-id="{{$value.id}}">{{$value.categoryName}}</a>
+    </li>
+    {{/each}}
+</script>
+<!-- 定义模板 右边列表 -->
+<script id="right" type="text/html">
+    {{each rows}}
+    <li>
+        <a href="javascript:;">
+            <img src="{{$value.brandLogo}}" alt="">
+            <p>{{$value.brandName}}</p>
+        </a>
+    </li>
+    {{/each}}
+</script>

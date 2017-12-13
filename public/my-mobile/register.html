@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>前台页面登录页</title>
+    <title>前台页面注册页面</title>
     <!-- 引入bootstrap的字体图标 -->
     <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
     <!-- 引入MUI的css -->
@@ -13,7 +13,7 @@
     <!-- 引入公共的less -->
     <link rel="stylesheet/less" href="./less/base.less">
     <!-- 引入自己的less -->
-    <link rel="stylesheet/less" href="./less/login.less">
+    <link rel="stylesheet/less" href="./less/register.less">
     <!-- 引入less解析文件 -->
     <script src="./lib/bootstrap/less/less.js"></script>
 
@@ -24,13 +24,15 @@
     <div id="layout">
         <!-- 头部功能区 -->
         <header id="header">
+            <!-- 放回上一页 -->
             <a href="#" class="back">
                 <i class=" fa fa-chevron-left
                 "></i>
             </a>
             <h4 class="logo">
-                <a href="#">登录页</a>
+                <a href="#">个人中心</a>
             </h4>
+            <!-- 搜索 -->
             <a href="search.html" class="search ">
                 <i class="fa fa-search
                 "></i>
@@ -38,28 +40,37 @@
         </header>
         <!-- 内容区 -->
         <div id="main">
-                <form class="mui-input-group" action="">
-                        <div class="mui-input-row">
-                            <label>用户名</label>
-                        <input type="text" class="mui-input-clear" placeholder="请输入用户名">
+            <form class="mui-input-group register">
+                    <div class="mui-input-row">
+                       
+                            <input type="text" class="mui-input-clear" placeholder="请输入用户名">
                         </div>
-                        <div class="mui-input-row">
-                            <label>密码</label>
-                            <input type="password" class="mui-input-password" placeholder="请输入密码">
-                        </div>
-                        <div class="mui-button-row">
-                            <button type="reset" class="mui-btn mui-btn-danger" >重置</button>
-                            <button type="submit" class="mui-btn mui-btn-primary" >登录</button>
-                        </div>
-                    </form>
-                    <div class="register">
-                    <a href="./register.html" class="mui-pull-right">立即注册 ?</a>
+                <div class="mui-input-row">
+                   
+                    <input type="text" class="mui-input-password" placeholder="请输入密码">
                 </div>
+                <div class="mui-input-row">
+                    
+                     <input type="text" class="mui-input-password" placeholder="请再次输入密码">
+                 </div>
+                 <div class="mui-input-row">
+                        
+                             <input type="text" class="mui-input-clear" placeholder="请输入手机号">
+                         </div>
+                         <div class="mui-input-row">
+                                
+                                     <input type="text" class="mui-input-clear" placeholder="请输入验证码">
+                                     <button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+                                 </div>
+                                 <button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+             
+            </form>
+
         </div>
         <!-- 页脚导航 -->
         <footer id="footer">
             <ul>
-                <li >
+                <li>
                     <a href="./index.html">
                         <i class="fa fa-home"></i>
                         <p>首页</p>
@@ -77,7 +88,7 @@
                         <p>购物车</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="./userCenter.html">
                         <i class="fa fa-user"></i>
                         <p>会员中心</p>
@@ -93,6 +104,9 @@
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
 <!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+<!--引入zeptojs  -->
+<script src="./lib/zepto/zepto.min.js"></script>
+<!-- 引入公共的js -->
+<script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
-<script src="./js/login.js"></script>
+<script src="./js/register.js"></script>
