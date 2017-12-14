@@ -44,14 +44,14 @@
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
                     <!-- 搜索框 -->
-                    <form action="product.html">
+                    <form action="">
                         <input type="search" placeholder="请输入">
                         <button>搜索</button>
                     </form>
                     <!-- 商品细节 -->
                     <div class="details">
                         <ul>
-                            <li>
+                            <li class="active">
                                 <a href="javascript:;">上架时间
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -87,15 +87,15 @@
                                 </a>
                             </li>
                             <li>
-                                    <a href="javascript:;">
-                                        <img src="./images/active2.png" alt="">
-                                        <p>劲霸男装,专注夹克37年,只为积累更好版型</p>
-                                        <span>¥900</span>
-                                        <span>¥600</span>
-                                        <br>
-                                        <button >立即购买</button>
-                                    </a>
-                                </li>
+                                <a href="javascript:;">
+                                    <img src="./images/active2.png" alt="">
+                                    <p>劲霸男装,专注夹克37年,只为积累更好版型</p>
+                                    <span>¥900</span>
+                                    <span>¥600</span>
+                                    <br>
+                                    <button>立即购买</button>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -141,7 +141,28 @@
 </html>
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
+
+<!--引入zeptojs  -->
+<script src="./lib/zepto/zepto.min.js"></script>
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
+
 <!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+<script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
-<script src="./js/index.js"></script>
+<script src="./js/product.js"></script>
+<script id="list" type="text/html">
+    {{each data}}
+    <li>
+        <a href="javascript:;">
+            <img src="{{$value.pic[0].picAddr}}" alt="">
+            <p>{{$value.proName}}</p>
+            <span>¥{{$value.price}}</span>
+            <span>¥{{$value.oldPrice}}</span>
+            <br>
+            <button data-id="{{$value.id}}">立即购买</button>
+        </a>
+    </li>
+
+    {{/each}}
+</script>

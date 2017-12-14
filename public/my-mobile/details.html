@@ -45,8 +45,8 @@
                 <div class="mui-scroll">
                     <!-- 轮播图 -->
 
-                    <div id="slider" class="mui-slider" >
-                        <div class="mui-slider-group mui-slider-loop" >
+                    <div id="slider" class="mui-slider">
+                        <div class="mui-slider-group mui-slider-loop">
                             <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
                             <div class="mui-slider-item mui-slider-item-duplicate">
                                 <a href="#">
@@ -94,34 +94,43 @@
                     <!-- 商品详情 -->
                     <div class="details">
                         <ul>
-                            <li class="name"><p>Sport飓风 Nike Kwazi 休闲运动鞋男 844839-002-001-100-4009999999</p></li>
-                            <li class="price"><p>价格 : <span class="now">¥600</span> <span class="old">¥6000</span></p></li>
-                            <li class="size ">尺码: 
+                            <li class="name">
+                                <p>Sport飓风 Nike Kwazi 休闲运动鞋男 844839-002-001-100-4009999999</p>
+                            </li>
+                            <li class="price">
+                                <p>价格 :
+                                    <span class="now">¥600</span>
+                                    <span class="old">¥6000</span>
+                                </p>
+                            </li>
+                            <li class="size ">尺码:
                                 <span class="active">9</span>
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                            <span>6</span>
-                            <span>6</span>
-                            <span>6</span>
-                            <span>6</span> 
-                            <span>6</span> 
-                            <span>6</span> 
-                            <span>6</span> 
-                            <span>6</span> 
-                            <span>6</span> 
-                            <span>6</span> 
-                            <span>6</span> 
-                         </li>
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                                <span>6</span>
+                            </li>
                             <li class="stock">库存 : &nbsp;
-                                    <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='100'>
-                                            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-                                            <input class="mui-numbox-input" type="number" />
-                                            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
-                                          </div>
-                                          <p>剩余数量:<span>20双</span></p>
+                                <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='100'>
+                                    <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                                    <input class="mui-numbox-input" type="number" />
+                                    <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                                </div>
+                                <p>剩余数量:
+                                    <span>20双</span>
+                                </p>
                             </li>
                             <li class="text">
                                 <span>详情:描叙:</span>
@@ -133,21 +142,104 @@
 
                 </div>
             </div>
-            </div>
-            <!-- 页脚导航 -->
-            <footer id="footer">
-              <a href="">去购物车</a>
-              <button class="mui-btn mui-btn-warning">加入购物车</button>
-              <button class="mui-btn mui-btn-danger">立即购买</button>
-            </footer>
         </div>
+        <!-- 页脚导航 -->
+        <footer id="footer">
+            <a href="./shoppingCart.html">去购物车</a>
+            <button class="mui-btn mui-btn-warning add-cart">加入购物车</button>
+            <button class="mui-btn mui-btn-danger">立即购买</button>
+        </footer>
+    </div>
 
 </body>
 
 </html>
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
+
+<!--引入zeptojs  -->
+<script src="./lib/zepto/zepto.min.js"></script>
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
 <!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+<script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
 <script src="./js/details.js"></script>
+<!-- 定义模板 -->
+<script id="content" type="text/html">
+    
+
+    <!-- 轮播图 -->
+
+    <div id="slider" class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+            <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                    <img src="{{pic[pic.length-1].picAddr}}">
+                </a>
+            </div>
+            <!-- 循环生成时也可以循环单一属性 -->
+            {{each pic}}
+            <!-- 第一张 -->
+            <div class="mui-slider-item">
+                <a href="#">
+                    <img src="{{$value.picAddr}}">
+                </a>
+            </div>
+            {{/each}}
+          
+            <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                    <img src="{{pic[0].picAddr}}">
+                </a>
+            </div>
+        </div>
+        <div class="mui-slider-indicator">
+         
+            {{each pic}}
+            <div class="mui-indicator mui-active"></div>
+          
+            {{/each}}
+        </div>
+    </div>
+ <!-- 商品详情 -->
+ <div class="details">
+        <ul>
+            <li class="name">
+                <!-- 没有数字循环的直接使用属性 -->
+                <p>{{proName}}</p>
+            </li>
+            <li class="price">
+                <p>价格 :
+                    <span class="now">¥{{price}}</span>
+                    <span class="old">¥{{oldPrice}}</span>
+                </p>
+            </li>
+            <li class="size ">尺码:
+               
+           
+            </li>
+            <li class="stock">库存 : &nbsp;
+                <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='{{num}}'>
+                    <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                    <input class="mui-numbox-input" type="number" />
+                    <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                </div>
+                <p>剩余数量:
+                    <span>{{num}}双</span>
+                </p>
+            </li>
+            <li class="text">
+                <span>详情:描叙:</span>
+                <textarea name="" id="" cols="30" rows="10">{{proDesc}}</textarea>
+            </li>
+        </ul>
+    </div>
+
+
+
+    
+
+</script>

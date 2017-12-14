@@ -29,7 +29,8 @@ $(function () {
             mui.alert("请输入搜索内容","温馨提示",)
             return
         } else {
-            event.preventDefault();
+            //去详情页
+            
             //就将原来保存的数据取出,转换成数组,并将新数据追加到里面,
             //再将数组转换成json格式的字符串,保存到本地 逆向思维,
             //获得本地数据
@@ -69,8 +70,14 @@ $(function () {
         //点击清空,删除全部历史记录
         $(".mui-pull-right").on("tap",function(){
            //删除所有本地数据,
-           window.localStorage.removeItem("search_history")
-           $(".record ul").html(template("list", getLocalData()))
+           mui.confirm("你确定清空历史记录","有情提示",function(e){
+               console.log(e);
+               if(e.index==1){
+                window.localStorage.removeItem("search_history")
+                $(".record ul").html(template("list", getLocalData()))
+               }
+           })
+         
         })
 
 

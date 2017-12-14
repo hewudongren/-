@@ -41,15 +41,15 @@
                 <form class="mui-input-group" action="">
                         <div class="mui-input-row">
                             <label>用户名</label>
-                        <input type="text" class="mui-input-clear" placeholder="请输入用户名">
+                        <input type="text" name="username" class="mui-input-clear" placeholder="请输入用户名">
                         </div>
                         <div class="mui-input-row">
                             <label>密码</label>
-                            <input type="password" class="mui-input-password" placeholder="请输入密码">
+                            <input type="password" name="password" class="mui-input-password" placeholder="请输入密码">
                         </div>
                         <div class="mui-button-row">
                             <button type="reset" class="mui-btn mui-btn-danger" >重置</button>
-                            <button type="submit" class="mui-btn mui-btn-primary" >登录</button>
+                            <button type="submit" class="mui-btn mui-btn-primary submit" >登录</button>
                         </div>
                     </form>
                     <div class="register">
@@ -92,7 +92,10 @@
 </html>
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
-<!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+
+<!--引入zeptojs  --> 
+<script src="./lib/zepto/zepto.min.js"></script>
+ <!-- 引入公共的js -->
+  <script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
 <script src="./js/login.js"></script>

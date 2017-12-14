@@ -39,46 +39,33 @@
         <!-- 内容区 -->
         <div id="main">
             <!-- 滚动区 -->
+
+
+
+
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
                     <!-- 购物列表 -->
                     <div class="shop-list">
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell mui-media">
-                                <a href="javascript:;">
-                                    <div class="left  mui-pull-left">
-                                            <img class="mui-media-object" src="./images/product.jpg">
-                                            <input type="checkbox" name="" id="">
-                                    </div>
-                                   
-                                    <div class="mui-media-body   right">
-                                        <p class="title">横空出世,莽昆仑,阅尽人间春色,飞起玉龙三百万,</p>
-                                        <p class='price'>
-                                            <span class="now">¥999.0</span>
-                                            <span class="old">¥888.0</span>
-                                            <span class="num mui-pull-right">1双</span>
-                                           
-                                        </p>
-                                        <p class="size">尺码:<span>40</span></p>
-                                    </div>
-                                </a>
-                            </li>
-                       
-                        
+
+                        <ul id="OA_task_1" class="mui-table-view">
+                            
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
 
 
         </div>
 
-<!-- 购物清单 -->
-<div class="total">
-        <p class="price">订单总价格:<span>¥900</span></p>
-        <button class="mui-btn mui-btn-danger">订单总价</button>
-    </div>
+        <!-- 购物清单 -->
+        <div class="total">
+            <p class="price">订单总价格:
+                ¥<span>0.00</span>
+            </p>
+            <button class="mui-btn mui-btn-danger">订单总价</button>
+        </div>
 
         <!-- 页脚导航 -->
         <footer id="footer">
@@ -116,7 +103,49 @@
 </html>
 <!-- 引入MUI的js -->
 <script src="./lib/mui/js/mui.min.js"></script>
+
+<!--引入zeptojs  -->
+<script src="./lib/zepto/zepto.min.js"></script>
+<!-- 引入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
 <!-- 引入公共的js -->
-<!--引入zeptojs  --> <script src="./lib/zepto/zepto.min.js"></script> <!-- 引入公共的js --> <script src="./js/bsse.js"></script>
+<script src="./js/bsse.js"></script>
 <!-- 引入自己的js     -->
-<script src="./js/index.js"></script>
+<script src="./js/shoppingCart.js"></script>
+<!-- 定义模板 -->
+<script id="list" type="text/html">
+    {{each data}}
+
+    <li class="mui-table-view-cell mui-transitioning mui-media">
+        <div class="mui-slider-right mui-disabled">
+            <a class="mui-btn mui-btn-red" style="font-size:25px;" >
+                <i class="fa fa-trash" data-id="{{$value.id}}" > 删除</i>
+            </a>
+        </div>
+        <div class="mui-slider-handle">
+
+            <a href="javascript:;">
+                <div class="left  mui-pull-left">
+                    <img class="mui-media-object" src="{{$value.pic[0].picAddr}}">
+                    <input type="checkbox" name="" id="">
+                </div>
+
+                <div class="mui-media-body   right">
+                    <p class="title">{{$value.proName}}</p>
+                    <p class='price'>
+                        <span class="now">¥<i>{{$value.price}}</i></span>
+                        <span class="old">¥{{$value.oldPrice}}</span>
+                        <span class="num mui-pull-right">{{$value.num}}双</span>
+
+                    </p>
+                    <p class="size">尺码:
+                        <span>{{$value.size}}</span>
+                    </p>
+                </div>
+            </a>
+
+        </div>
+    </li>
+    {{/each}}
+
+</script>
