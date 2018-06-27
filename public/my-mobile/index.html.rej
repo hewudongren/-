@@ -1,0 +1,11 @@
+diff a/public/my-mobile/index.html b/public/my-mobile/index.html	(rejected hunks)
+@@ -239,6 +239,9 @@
+         <div>
+             横空出世，莽昆仑，阅尽人间春色
+         </div>
++        <div>
++            你好
++        </div>
+         <!-- 页脚导航 -->
+         <footer id="footer">
+             <ul>
