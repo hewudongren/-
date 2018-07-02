@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title><%= htmlWebpackPlugin.options.title%></title>
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
+    <% } %>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- 關閉iphone對電話號碼等數字串格式化 -->
+    <meta name="format-detection" content="telephone=no">
+    <!--隐藏状态栏/设置状态栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+
+    <% for(var ma in htmlWebpackPlugin.options.meta) { %>
+        <meta attr="jw_meta" name="<%= ma%>" content="<%= htmlWebpackPlugin.options.meta[ma]%>" />
+    <% } %>
+</head>
+<body>
+    <div id="app" class="shell" style="height: 100%;">
+        <header class="el-header" style="height:4.285rem;">
+            <div class="shell-header"></div><div class="shell-language"></div><div class="shell-user"></div>
+        </header>
+        <div class="jw-container">
+            <div class="jw-aside" style="width:13rem;"></div>
+            <div class="jw-main" style="margin-left:13rem;">
+                <div class="shell-title"></div>
+                <div class="shell-board"></div> 
+            </div>
+        </div>
+        <footer class="jw-footer"></footer>
+    </div>
+    <!-- download -->
+    <iframe id="frm-download" style="display:none;"></iframe>
+</body>
+<script type="text/javascript" id="__main_script_port__" src="/jw.root.js?<%= htmlWebpackPlugin.options.randomId%>" script-list="/vendor.js?<%= htmlWebpackPlugin.options.randomId%>,/highchart.js?<%= htmlWebpackPlugin.options.randomId%>|/app.js?<%= htmlWebpackPlugin.options.randomId%>"></script>
+</html>

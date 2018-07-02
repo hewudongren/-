@@ -1,0 +1,8 @@
+node_modules/
+dist/
+publish.sh
+command.txt
+.DS_Store
+.tern-port
+.idea/
+apps/

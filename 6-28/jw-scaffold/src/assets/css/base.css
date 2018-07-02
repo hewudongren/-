@@ -1,0 +1,354 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+input,
+select {
+  vertical-align: middle
+}
+
+li {
+  list-style: none
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+#app {
+
+  width:100%;
+  height:100%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+
+  float: right;
+}
+
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.panel {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  overflow-y: hidden !important;
+}
+
+.hidden {
+  display: none;
+}
+/* 私有 */
+.main{
+  padding: 20px;
+}
+.mgb{
+  margin-bottom: 10px;
+}
+.clearfix:after{
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+  
+ }
+
+/*shell*/
+.shell .el-header {
+  padding: 0;
+}
+.shell-board {
+  background-color: #eee;
+  margin: 10px;
+  height: calc(100% - 130px);
+} 
+.shell-header {
+  margin: 10px;
+  display: inline-block;
+  width: calc(100% - 280px);
+  background-color: #eee;
+  vertical-align: middle;
+  height: 40px;
+}
+.shell-user {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #eee;
+}
+.shell-language {
+  width: 200px;
+  height: 40px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #eee;
+}
+.shell-title {
+  height: 100px;
+  background-color: #eee;
+  margin: 10px;
+}
+
+/*兼容IE9旋转*/
+.el-tree-node__expand-icon.expanded {
+  -ms-transform: rotate(90deg); 
+}
+.el-checkbox__input.is-checked .el-checkbox__inner::after {
+  -ms-transform: rotate(45deg);
+}
+.el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow {
+  -ms-transform: rotate(180deg);
+}
+.el-message .el-message__content {
+  display: inline-block;
+}
+.el-form-item.is-success .el-input__inner {
+  border-color: #dcdfe6;
+}
+.el-select .el-select__caret {
+  line-height: 16px;
+}
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?3zsbru');
+  src:  url('../fonts/icomoon.eot?3zsbru#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?3zsbru') format('truetype'),
+    url('../fonts/icomoon.woff?3zsbru') format('woff'),
+    url('../fonts/icomoon.svg?3zsbru#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-back:before {
+  content: "\e901";
+}
+.icon-menu:before {
+  content: "\e900";
+}
+.icon-shebei:before {
+  content: "\e600";
+}
+.icon-app:before {
+  content: "\e602";
+}
+.icon-error:before {
+  content: "\e604";
+}
+.icon-star:before {
+  content: "\e608";
+}
+.icon-edit:before {
+  content: "\e60d";
+}
+.icon-users:before {
+  content: "\e60e";
+}
+.icon-bar:before {
+  content: "\e620";
+}
+.icon-selected-user:before {
+  content: "\e62e";
+}
+.icon-chart:before {
+  content: "\e634";
+}
+.icon-cloud:before {
+  content: "\e641";
+}
+.icon-setting:before {
+  content: "\e64c";
+}
+.icon-xingneng:before {
+  content: "\e653";
+}
+.icon-institute:before {
+  content: "\e660";
+}
+.icon-digital:before {
+  content: "\e662";
+}
+.icon-midware:before {
+  content: "\e663";
+}
+.icon-data-dict:before {
+  content: "\e680";
+}
+.icon-user-setting:before {
+  content: "\e69e";
+}
+.icon-jiankong:before {
+  content: "\e69f";
+}
+.icon-internal:before {
+  content: "\e6e4";
+}
+.icon-mpm:before {
+  content: "\e70c";
+}
+.icon-operation:before {
+  content: "\e70e";
+}
+.icon-pdm:before {
+  content: "\e721";
+}
+.icon-apps:before {
+  content: "\e729";
+}
+.icon-config-rule:before {
+  content: "\e748";
+}
+.icon-home:before {
+  content: "\e752";
+}
+.icon-addition:before {
+  content: "\e917";
+}
+.icon-user:before {
+  content: "\e91d";
+}
+.icon-password-reset:before {
+  content: "\e921";
+}
+.icon-web:before {
+  content: "\e990";
+}
+.icon-remove:before {
+  content: "\ea14";
+}
+.icon-phone-system:before {
+  content: "\ea2b";
+}
+.icon-clock:before {
+  content: "\ea79";
+}
+.icon-help:before {
+  content: "\ea09";
+}
+.icon-right:before {
+  content: "\e902";
+}
+.icon-mstar:before {
+  content: "\e903";
+}
+.icon-lock:before {
+  content: "\e98f";
+}
